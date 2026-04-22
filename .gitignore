@@ -8,6 +8,7 @@ xiaokeer_project_tree.md
 ## IDE
 .idea/
 .vscode/
+.vs/
 *.swp
 *.swo
 *~
@@ -51,8 +52,16 @@ yarn-error.log*
 frontend/dist/
 *.spec.bak
 
-# Installer
-installer/
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.userprefs
+
+# Installer outputs
+dist/
 
 # Logs
 *.log
@@ -62,6 +71,9 @@ installer/
 
 # Data folder
 .ot_data/
+
+# Local temp
+tmp_send.txt
 
 # OS
 .DS_Store

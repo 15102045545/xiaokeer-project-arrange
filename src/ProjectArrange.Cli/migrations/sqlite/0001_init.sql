@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS MachineHeartbeat(
+  MachineId TEXT NOT NULL PRIMARY KEY,
+  MachineName TEXT NOT NULL,
+  LastSeenUtc TEXT NOT NULL,
+  Note TEXT NULL
+);

@@ -1,0 +1,27 @@
+CREATE TABLE IF NOT EXISTS RepoRegistry(
+  Path TEXT NOT NULL PRIMARY KEY,
+  OriginUrl TEXT NULL,
+  GitHubFullName TEXT NULL,
+  AddedUtc TEXT NOT NULL,
+  LastSeenUtc TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS RepoGitSnapshot(
+  Path TEXT NOT NULL PRIMARY KEY,
+  Branch TEXT NOT NULL,
+  Ahead INTEGER NOT NULL,
+  Behind INTEGER NOT NULL,
+  IsClean INTEGER NOT NULL,
+  StagedChanges INTEGER NOT NULL,
+  UnstagedChanges INTEGER NOT NULL,
+  UntrackedFiles INTEGER NOT NULL,
+  Utc TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS RepoSecretScanSnapshot(
+  Path TEXT NOT NULL PRIMARY KEY,
+  ToolAvailable INTEGER NOT NULL,
+  FindingsCount INTEGER NOT NULL,
+  RawOutput TEXT NOT NULL,
+  Utc TEXT NOT NULL
+);

@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ProjectArrange.App/ProjectArrange.App.csproj" />
+    <Project Path="src/ProjectArrange.Cli/ProjectArrange.Cli.csproj" />
+    <Project Path="src/ProjectArrange.Core/ProjectArrange.Core.csproj" />
+    <Project Path="src/ProjectArrange.Infrastructure/ProjectArrange.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ProjectArrange.Tests/ProjectArrange.Tests.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/ProjectArrange.UpdateFeedServer/ProjectArrange.UpdateFeedServer.csproj" />
+  </Folder>
+</Solution>

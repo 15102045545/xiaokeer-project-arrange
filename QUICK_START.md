@@ -1,11 +1,44 @@
 [![返回](./assets/home-back-orange.svg)](./README.md)
 
 ## 快速开始
-1. 克隆此项目到本地,然后切断和远程的联系，并且删除当前项目的.git文件夹
-2. 重命名项目文件夹为新的名称: xiaokeer-xxx
-3. 全局搜索替换新名称: xiaokeer-project-arrange -> xiaokeer-xxx 
-4. 修改除README.md文件部分内容，使其符合新项目的描述
-5. 在随后,删除QUICK_START.md文件内的和新项目无法的内容(也就是你正在看的这部分)
-6. 解开.gitignore内'xiaokeer'区块的注释
-7. 开始项目开发之旅: 在.xiaokeer文件夹进行工作流
-8. 初始化git等操作,提交到远程仓库
+
+### 0) 你会得到什么
+- 一个 Windows WPF 测试台：包含 Config / Tasks / Repos / P2P / Secret Scan / Update / AI 等页，能直接跑通“仓库注册表、批处理任务、LAN P2P、开源化 dry-run”等闭环。
+- 一个 CLI：用于脚本化执行（例如 update-check / p2p-send 等）。
+- 一个 UpdateFeedServer：提供 `GET /api/update/latest` 的最小更新源接口（当前只负责返回最新版本信息）。
+
+### 1) 环境依赖（最小）
+- Windows 10/11
+- .NET SDK 8.x
+
+可选工具（不装也能启动，但对应功能会提示缺失）：
+- git（用于 Git 状态/操作）
+- gh（用于 GitHub 登录态与部分操作）
+- gitleaks（用于敏感信息扫描）
+- python（用于 AI 混合架构本地 server）
+
+### 2) 一键构建（推荐）
+
+在项目根目录打开 PowerShell：
+
+```powershell
+.\scripts\02_build.ps1
+```
+
+### 3) 启动桌面端
+
+```powershell
+.\scripts\03_run_app.ps1
+```
+
+启动后建议先做两件事：
+- 打开 Config 页，确认 `UserConfigPath=...appsettings.user.json`，并按需写入 Tools/Ai/P2P 配置后保存
+- 打开 Repos 页：Load Registry（或 Discover）后选择 repo，跑一轮 Refresh Git / Scan Secrets / OpenSourceify DryRun
+
+### 4) 启动更新源服务（本机）
+
+```powershell
+.\scripts\04_run_update_feed_server.ps1
+```
+
+桌面端默认读取 `UpdateFeed:BaseUrl=http://localhost:5123`，Update 页或 CLI 可进行 update-check。
